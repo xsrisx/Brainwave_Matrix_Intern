@@ -1,191 +1,114 @@
-# ATM Interface Project
+# Hospital Management System
 
-This project simulates an ATM (Automated Teller Machine) interface with multiple functionalities like withdrawal, balance enquiry, mini statement, PIN change, and fund transfer. The code is written in Java and includes an interface and a class implementing that interface.
+## Overview
+
+This Java-based Hospital Management System manages various aspects of a healthcare facility, including:
+
+- Patient Management
+- Appointment Scheduling
+- Electronic Health Records (EHR)
+- Billing and Invoicing
+- Inventory Management for Medical Supplies
+- Staff Management
 
 ## Project Structure
 
-ATM-Interface/
+
+hospital-management-system/
 │
-├── src/
-│   ├── ATM.java
-│   ├── ATMInterface.java
-│   └── Main.java
+└── src/
+│   └── com/
+│   |   └── hospital/
+│   |       └── App.java
+│   │       └── patients/
+│   │       |   │── Patient.java
+│   │       |   │── PatientRegistration.java
+│   │       |   └── PatientService.java
+│   │       └── appointments/
+│   │       |   ├── Appointment.java
+│   │       |   ├── AppointmentService.java
+│   │       |   └── Scheduler.java
+│   │       └── ehr/
+│   │       │   ├── EHR.java
+│   │       │   ├── EHRService.java
+│   │       │   └── MedicalRecord.java
+│   │       └── billing/
+│   │       │   ├── Billing.java
+│   │       │   ├── Invoice.java
+│   │       │   └── BillingService.java
+│   │       └── inventory/
+│   │       │   ├── Inventory.java
+│   │       │   ├── InventoryService.java
+│   │       │   └── MedicalSupply.java
+│   │       └── staff/
+│   │           ├── Staff.java
+│   │           ├── StaffService.java
+│   │           └── StaffManagement.java
+│   └── AppTest.java
 │
-├── .gitignore
-├── LICENSE
-├── README.md
+└── README.md
 
 
-## Features
 
-- **Card Insertion**
-- **Withdrawal**
-- **Balance Enquiry**
-- **Mini Statement**
-- **PIN Change**
-- **Fund Transfer**
-- **Exit**
 
-## Prerequisites
+## How to Run
 
-- Java Development Kit (JDK) installed on your system.
 
-## Compilation and Execution
+#### Compile the Code
 
-1. Navigate to the `src` directory.
-2. Compile the Java files:
-    ```bash
-    javac Main.java ATMInterface.java ATM.java
-    ```
-3. Run the main class:
-    ```bash
-    java Main
-    ```
+Use the following command to compile the code. This will compile all the Java files and place the compiled `.class` files in the `out/` directory.
 
-## Usage
+javac src/com/hospital/**/*.java src/AppTest.java -d out/
 
-### Card Insertion
 
-Upon starting the application, you will be prompted to insert your card.
+#### 2. Run the Application
 
-Please insert your card into the card holder.
-Your card is being read....
+To run the application, execute the App class, which serves as the entry point of the application.
 
+java -cp out/ com.hospital.App
 
-### Main Menu
 
-After card insertion, the main menu will be displayed.
+#### 3. Run the Tests
 
-ATM Menu:
+To run the tests included in AppTest.java, which perform simple functionality checks, use the following command. This command enables assertions and runs the AppTest class.
 
-1. Withdrawal
-2. Balance Enquiry
-3. Mini Statement
-4. PIN Change
-5. Transfer
-6. Exit
-Select an option:
+javac -d out/ src/com/hospital/**/*.java src/AppTest.java
+java -ea -cp out/ com.hospital.AppTest
 
 
-### Withdrawal
+Main Functionalities
 
-To withdraw money, choose option `1`.
+    Patient Management:
 
-Please select your account type:
+        Patient.java: Represents patient details.
+        PatientRegistration.java: Handles the registration of new patients.
+        PatientService.java: Provides services related to patients.
+    
+    Appointment Scheduling:
 
-1. Current
-2. Savings
-3. Credit
-Enter amount to withdraw: Rs. 500
-Enter your 4-digit PIN: 1234
-Amount withdrawn: Rs. 500
-Do you want a receipt? (yes/no)
+        Appointment.java: Represents an appointment.
+        AppointmentService.java: Manages appointments.
+        Scheduler.java: Handles appointment scheduling.
+    
+    Electronic Health Records (EHR):
 
+        EHR.java: Represents electronic health records.
+        EHRService.java: Provides services for managing EHRs.
+        MedicalRecord.java: Represents individual medical records.
 
-### Balance Enquiry
+    Billing and Invoicing:
 
-To check your balance, choose option `2`.
+        Billing.java: Handles billing operations.
+        Invoice.java: Represents an invoice.
+        BillingService.java: Manages billing and invoicing.
+    Inventory Management:
 
-Your balance is: Rs. 9500
+        Inventory.java: Represents the inventory of medical supplies.
+        InventoryService.java: Manages inventory operations.
+        MedicalSupply.java: Represents medical supplies.
+    
+    Staff Management:
 
-
-### Mini Statement
-
-To view your mini statement, choose option `3`.
-
-Mini Statement:
-Withdrawn: Rs. 500 from account type 1
-
-
-### PIN Change
-
-To change your PIN, choose option `4`.
-
-Enter new PIN: 4321
-PIN changed successfully.
-
-
-### Fund Transfer
-
-To transfer funds, choose option `5`.
-
-Enter recipient account number: 987654321
-Enter amount to transfer: Rs. 1000
-Amount transferred: Rs. 1000
-
-
-### Exit
-
-To exit the application, choose option `6`.
-
-Thank you for using the ATM.
-Please take your card.
-
-
-
-
-
-
-
-
-
-
-## Example Session
-
-Here is an example session demonstrating the usage of the ATM interface.
-
-Please insert your card into the card holder.
-Your card is being read...
-
-ATM Menu:
-
-1. Withdrawal
-2. Balance Enquiry
-3. Mini Statement
-4. PIN Change
-5. Transfer
-6. Exit
-
-Select an option: 1
-Please select your account type:
-
-1. Current
-2. Savings
-3. Credit
-
-Enter amount to withdraw: Rs. 1000
-Enter your 4-digit PIN: 1234
-Amount withdrawn: Rs. 1000
-Do you want a receipt? (yes/no) yes
-
---- Receipt ---
-Amount Withdrawn: Rs. 1000
-Account Type: Current
-
-Thank you for using the ATM.
-Please take your card.
-
-ATM Menu:
-
-1. Withdrawal
-2. Balance Enquiry
-3. Mini Statement
-4. PIN Change
-5. Transfer
-6. Exit
-
-Select an option: 2
-Your balance is: Rs. 9000
-
-ATM Menu:
-
-1. Withdrawal
-2. Balance Enquiry
-3. Mini Statement
-4. PIN Change
-5. Transfer
-6. Exit
-
-Select an option: 6
-Thank you for using the ATM.
-Please take your card.
+        Staff.java: Represents staff members.
+        StaffService.java: Provides services related to staff.
+        StaffManagement.java: Manages staff operations.
